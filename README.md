@@ -1,7 +1,7 @@
 # Simplu3D-OpenMole
 ============
 
-This projects contains codes to allow distribution and exploration of [SimPLU3D](https://github.com/IGNF/simplu3D) model thanks to [OpenMole](https://www.openmole.org/) library.
+This projects contains codes to explore the [SimPLU3D](https://github.com/IGNF/simplu3D) model, distributing the computation using the [OpenMole](https://www.openmole.org/) software.
 
 Conditions for use
 ---------------------
@@ -12,7 +12,7 @@ Furthermore, we are interested in every feedbacks about this library if you find
 
 Distribution method
 ---------------------
-The zonepacker script allow to split parcels into homogeneous groups in term of number of simulation for calculation distribution with OpenMOLE. In order to run this script, an OSGI bundle have to be built by using *sbt osgiBundle* command from the root of the projet.
+The zonepacker script allows splitting parcels into homogeneous groups in term of number of simulation for calculation distribution with OpenMOLE. In order to run this script, an OSGI bundle have to be built by using *sbt osgiBundle* command from the root of the projet.
 
 The resulting bundle has to be placed in the same directory than the script and can be run by updating the reference to the different folders.
  ./zonepacker.sh "/home/mbrasebin/Bureau/parcels_rulez/real/parcels_rulez.shp" "/tmp/tmp/" "/tmp/out/" 20
