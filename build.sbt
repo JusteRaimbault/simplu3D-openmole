@@ -25,16 +25,20 @@ resolvers ++= Seq(
   //"ISC-PIF Public" at "http://maven.iscpif.fr/public/",
   //"ISC-PIF Snapshots" at "http://maven.iscpif.fr/ign-snapshots/",
   //"ISC-PIF Release" at "http://maven.iscpif.fr/ign-releases/",
-  ("ImageJ" at "http://maven.imagej.net/content/repositories/public").withAllowInsecureProtocol(true),
-  ("Boundless" at "http://repo.boundlessgeo.com/main").withAllowInsecureProtocol(true),
-  ("osgeo" at "http://download.osgeo.org/webdav/geotools/").withAllowInsecureProtocol(true),
-  ("geosolutions" at "http://maven.geo-solutions.it/").withAllowInsecureProtocol(true),
-  ("Hibernate" at "http://www.hibernatespatial.org/repository").withAllowInsecureProtocol(true)
+  ("ImageJ" at "https://maven.scijava.org/content/repositories/public/"),
+  //("Boundless" at "http://repo.boundlessgeo.com/main").withAllowInsecureProtocol(true),
+  ("osgeo" at "https://repo.osgeo.org/repository/geotools-releases"),
+  ("geosolutions" at "https://maven.geo-solutions.it/"),
+  //("Hibernate" at "http://www.hibernatespatial.org/repository").withAllowInsecureProtocol(true)
 )
 
 val simplu3DVersion = "1.3-SNAPSHOT"
 val simplu3D_experimentsVersion = "1.2-SNAPSHOT"
-val geotoolsGridVersion = "18.4"
+//val geotoolsGridVersion = "18.4"
+val geotoolsGridVersion = "21.0"
+
+//useCoursier := false
+updateOptions := updateOptions.value.withLatestSnapshots(false)
 
 libraryDependencies ++= Seq(
   "org.geotools" % "gt-grid" % geotoolsGridVersion,
@@ -50,8 +54,9 @@ libraryDependencies ++= Seq(
   "org.geotools" % "gt-opengis" % geotoolsGridVersion,
   "org.geotools" % "gt-main" % geotoolsGridVersion,
   "org.geotools" % "gt-api" % geotoolsGridVersion,
-  "fr.ign.cogit" % "simplu3d" % simplu3DVersion
+  "fr.ign.cogit" % "simplu3d" % simplu3DVersion excludeAll(ExclusionRule(organization = "org.geotools")) // issue with some methods called by geoxygene -> should not exclude here and use latest geotools version?
 )
+
 
 libraryDependencies += "fr.ign.cogit" % "simplu3d-experiments" % simplu3D_experimentsVersion excludeAll(
     ExclusionRule(organization = "org.geotools"),

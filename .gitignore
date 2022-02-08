@@ -5,3 +5,6 @@ bin/
 .project
 .history
 .classpath
+lib
+res
+
