@@ -32,32 +32,40 @@ resolvers ++= Seq(
   //("Hibernate" at "http://www.hibernatespatial.org/repository").withAllowInsecureProtocol(true)
 )
 
-val simplu3DVersion = "1.3-SNAPSHOT"
+//val simplu3DVersion = "1.2-SNAPSHOT"
 val simplu3D_experimentsVersion = "1.2-SNAPSHOT"
-//val geotoolsGridVersion = "18.4"
-val geotoolsGridVersion = "21.0"
+//val geotoolsVersion = "18.4"
+//val geotoolsVersion = "21.0"
 
 //useCoursier := false
-updateOptions := updateOptions.value.withLatestSnapshots(false)
+updateOptions := updateOptions.value.withLatestSnapshots(true)
+
 
 libraryDependencies ++= Seq(
-  "org.geotools" % "gt-grid" % geotoolsGridVersion,
-  "org.geotools" % "gt-coverage" % geotoolsGridVersion,
-  "org.geotools" % "gt-geotiff" % geotoolsGridVersion,
-  "org.geotools" % "gt-image" % geotoolsGridVersion,
-  "org.geotools" % "gt-referencing" % geotoolsGridVersion,
-  "org.geotools" % "gt-epsg-hsql" % geotoolsGridVersion,
-  //"org.geotools" % "gt-epsg-extension" % geotoolsGridVersion,
-  "org.geotools" % "gt-shapefile" % geotoolsGridVersion,
-  "org.geotools" % "gt-graph" % geotoolsGridVersion,
-  "org.geotools" % "gt-metadata" % geotoolsGridVersion,
-  "org.geotools" % "gt-opengis" % geotoolsGridVersion,
-  "org.geotools" % "gt-main" % geotoolsGridVersion,
-  "org.geotools" % "gt-api" % geotoolsGridVersion,
-  "fr.ign.cogit" % "simplu3d" % simplu3DVersion excludeAll(ExclusionRule(organization = "org.geotools")) // issue with some methods called by geoxygene -> should not exclude here and use latest geotools version?
+  //"fr.ign.cogit" % "simplu3d" % simplu3DVersion,
+  "fr.ign.cogit" % "simplu3d-experiments" % simplu3D_experimentsVersion
+  // depends on 1.2 snapshot, gexygene 1.10 https://github.com/SimPLU3D/simplu3D-experiments/blob/master/pom.xml https://github.com/IGNF/geoxygene/blob/master/pom.xml
 )
 
+/*
+libraryDependencies ++= Seq(
+  "org.geotools" % "gt-grid" % geotoolsVersion,
+  "org.geotools" % "gt-coverage" % geotoolsVersion,
+  "org.geotools" % "gt-geotiff" % geotoolsVersion,
+  "org.geotools" % "gt-image" % geotoolsVersion,
+  "org.geotools" % "gt-referencing" % geotoolsVersion,
+  "org.geotools" % "gt-epsg-hsql" % geotoolsVersion,
+  //"org.geotools" % "gt-epsg-extension" % geotoolsVersion,
+  "org.geotools" % "gt-shapefile" % geotoolsVersion,
+  "org.geotools" % "gt-graph" % geotoolsVersion,
+  "org.geotools" % "gt-metadata" % geotoolsVersion,
+  "org.geotools" % "gt-opengis" % geotoolsVersion,
+  "org.geotools" % "gt-main" % geotoolsVersion,
+  //"org.geotools" % "gt-api" % geotoolsVersion,
+  "fr.ign.cogit" % "simplu3d" % simplu3DVersion excludeAll(ExclusionRule(organization = "org.geotools")) // issue with some methods called by geoxygene -> should not exclude here and use latest geotools version?
+)*/
 
+/*
 libraryDependencies += "fr.ign.cogit" % "simplu3d-experiments" % simplu3D_experimentsVersion excludeAll(
     ExclusionRule(organization = "org.geotools"),
     ExclusionRule(organization = "uk.ac.ed.ph.snuggletex"),
@@ -76,3 +84,4 @@ libraryDependencies += "fr.ign.cogit" % "simplu3d-experiments" % simplu3D_experi
     ExclusionRule(organization = "javax.media"),
     ExclusionRule(organization = "org.slf4j")
   )
+*/
